@@ -45,16 +45,16 @@ pipeline {
             }
             steps {
                 sh '''
-                npm install netlify-cli -g
+                npm install netlify-cli
                 netlify --version
                 '''
             }
-        }
-    }
 
-    post {
-        always {
-            junit 'test-results/junit.xml'
+            post {
+            always {
+                    junit 'test-results/junit.xml'
+                }
+            }
         }
     }
 }
